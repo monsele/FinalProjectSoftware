@@ -1,0 +1,79 @@
+﻿@model FinalProjectSoftware.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+<h1>Register</h1>
+<div class="row">
+    <div class="col-md-3">
+        <form method="post">
+            <h4>Create A new Account</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input type="email" asp-for="Email" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FirstName"></label>
+                <input type="text" asp-for="FirstName" />
+                <span asp-validation-for="FirstName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" />
+                <span asp-validation-for="LastName"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="YearsOfExpirience"></label>
+                <input asp-for="YearsOfExpirience" class="form-control" />
+                <span asp-validation-for="YearsOfExpirience" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StateOfOrigin"></label>
+                <input asp-for="StateOfOrigin" class="form-control" />
+                <span asp-validation-for="StateOfOrigin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <select name="PlacementId" class="form-control" asp-for="PlacementId">
+                    <option value="">---Choose The Placement----</option>
+                    @foreach (var item in Model.Placements)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="StatusId" class="form-control" asp-for="StatusId">
+                    <option value="">---Choose The Status----</option>
+                    @foreach (var item in Model.Statuses)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <select name="JobRoleId" class="form-control" asp-for="JobRoleId">
+                    <option value="">---Choose The JobRole----</option>
+                    @foreach (var item in Model.JobRole)
+                    {
+                        <option value="@item.Id">@item.Position</option>
+                    }
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</div>
+
